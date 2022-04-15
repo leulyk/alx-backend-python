@@ -1,3 +1,3 @@
 # Backend development
 
-> This repository for learning backend development with JavaScript
+> This repository for learning backend development with Python
