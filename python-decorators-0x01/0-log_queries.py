@@ -1,12 +1,13 @@
 import sqlite3
 import functools
+from datetime import datetime
 
 # decorator to log SQL queries
 def log_queries(function):
     @functools.wraps(function)
     def wrapper(query, *args, **kwargs):
         result = function(query, *args, **kwargs)
-        print('query: ', query) 
+        print('[{}]: {}'.format(datetime.now(), query))
         return result
     return wrapper
 
