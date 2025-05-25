@@ -16,7 +16,7 @@ async def async_fetch_older_users():
             
     return results
 
-async def fetch_users():
+async def fetch_concurrently():
     all_users, old_users = await asyncio.gather(
         async_fetch_users(),
         async_fetch_older_users()
@@ -27,7 +27,7 @@ async def fetch_users():
             print(f"{index}: {user}")
 
     if old_users:
-        for i, user in enumerate(old_users):
-            print(f"{i}: {user}")
+        for index, user in enumerate(old_users):
+            print(f"{index}: {user}")
 
-asyncio.run(fetch_users())
+asyncio.run(fetch_concurrently())
